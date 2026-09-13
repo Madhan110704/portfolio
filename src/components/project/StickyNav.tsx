@@ -36,12 +36,14 @@ export default function StickyNav({ project }: { project: Project }) {
   if (project.caseStudy.architecture) standardNavItems.push({ id: 'architecture', label: 'ARCHITECTURE' });
   if (project.caseStudy.designApproach) standardNavItems.push({ id: 'design-approach', label: 'APPROACH' });
   if (project.caseStudy.schematicDesc) standardNavItems.push({ id: 'schematic', label: 'SCHEMATIC' });
-  if (project.caseStudy.pcbDesignDesc) standardNavItems.push({ id: 'pcb-design', label: 'PCB DESIGN' });
+  if (project.caseStudy.pcbDesignDesc) standardNavItems.push({ id: 'pcb-design', label: 'PCB LAYOUT' });
+  if (project.caseStudy.layerStructureDesc) standardNavItems.push({ id: 'stackup', label: 'STACKUP' });
   if (project.caseStudy.rfDesignDesc) standardNavItems.push({ id: 'rf-design', label: 'RF' });
   if (project.caseStudy.verificationDesc || project.caseStudy.resultsDesc) standardNavItems.push({ id: 'verification', label: 'RESULTS' });
   if (project.media?.renderFront) standardNavItems.push({ id: '3d-visualization', label: '3D' });
   standardNavItems.push({ id: 'gallery', label: 'GALLERY' });
   standardNavItems.push({ id: 'tools', label: 'TOOLS' });
+  if (project.caseStudy.takeaways) standardNavItems.push({ id: 'takeaways', label: 'TAKEAWAYS' });
 
   const navItems = project.id === 'uwb-antenna' ? antennaNavItems : standardNavItems;
 

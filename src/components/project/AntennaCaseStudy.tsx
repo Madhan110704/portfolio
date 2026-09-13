@@ -12,7 +12,7 @@ export default function AntennaCaseStudy({ project }: AntennaCaseStudyProps) {
   return (
     <div className="container-portfolio max-w-5xl py-12">
       {/* 01. OVERVIEW */}
-      <section id="overview" className="scroll-mt-32 mb-20">
+      <section id="overview" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
         <SectionHeader number="01" title="PROJECT OVERVIEW" />
         <div className="grid md:grid-cols-3 gap-10 lg:gap-12">
           <div className="md:col-span-2 space-y-4 text-slate-300 text-base sm:text-lg leading-relaxed">
@@ -53,7 +53,7 @@ export default function AntennaCaseStudy({ project }: AntennaCaseStudyProps) {
       </section>
 
       {/* 02. KEY SPECIFICATIONS & SIMULATED PERFORMANCE SUMMARY */}
-      <section id="specs" className="scroll-mt-32 mb-20">
+      <section id="specs" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
         <SectionHeader number="02" title="KEY SPECIFICATIONS" />
         
         {/* Performance Header Badge */}
@@ -175,7 +175,7 @@ export default function AntennaCaseStudy({ project }: AntennaCaseStudyProps) {
       </section>
 
       {/* 03. ANTENNA ARCHITECTURE (7 FUNCTIONAL LAYERS) */}
-      <section id="architecture" className="scroll-mt-32 mb-20">
+      <section id="architecture" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
         <SectionHeader number="03" title="ANTENNA ARCHITECTURE" />
         <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-6 max-w-3xl">
           The antenna is structured across three stacked Rogers RT/Duroid 5880 substrates (εr = 2.2, tanδ = 0.0009), comprising seven functional metallic and dielectric layers.
@@ -258,7 +258,7 @@ export default function AntennaCaseStudy({ project }: AntennaCaseStudyProps) {
       </section>
 
       {/* 04. MULTILAYER STACK / KEY GEOMETRY */}
-      <section id="geometry" className="scroll-mt-32 mb-20">
+      <section id="geometry" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
         <SectionHeader number="04" title="KEY GEOMETRY & DESIGN PARAMETERS" />
         <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-6 max-w-3xl">
           Key structural dimensions optimized in CST Studio Suite to align resonances across the 51.3–61.6 GHz millimeter-wave operating band.
@@ -330,7 +330,7 @@ export default function AntennaCaseStudy({ project }: AntennaCaseStudyProps) {
       </section>
 
       {/* 05. DESIGN EVOLUTION (SIX CONFIGURATIONS) */}
-      <section id="evolution" className="scroll-mt-32 mb-20">
+      <section id="evolution" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
         <SectionHeader number="05" title="DESIGN EVOLUTION" />
         <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-6 max-w-3xl">
           The antenna progression was evaluated across six simulated configurations to systematically investigate how increasing cell count and introducing CSRR/RSRR loading affect impedance matching and bandwidth.
@@ -396,7 +396,7 @@ export default function AntennaCaseStudy({ project }: AntennaCaseStudyProps) {
       </section>
 
       {/* 06. EQUIVALENT LC MODEL */}
-      <section id="lc-model" className="scroll-mt-32 mb-20">
+      <section id="lc-model" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
         <SectionHeader number="06" title="RESONANCE & EQUIVALENT LC MODEL" />
         <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-6 max-w-3xl">
           The unit cell is interpreted using an equivalent parallel LC model to explain miniaturization and bandwidth enhancement.
@@ -443,7 +443,7 @@ export default function AntennaCaseStudy({ project }: AntennaCaseStudyProps) {
       </section>
 
       {/* 07. FEED & DEFECTED GROUND STRUCTURE */}
-      <section id="feed-dgs" className="scroll-mt-32 mb-20">
+      <section id="feed-dgs" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
         <SectionHeader number="07" title="FEED & DEFECTED GROUND STRUCTURE" />
         <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-6 max-w-3xl">
           A 50 Ω keyhole-shaped microstrip feedline excites the structure through a dumbbell-shaped Defected Ground Structure (DGS). The DGS modifies ground current distribution, contributing an additional resonant mechanism to widen impedance bandwidth.
@@ -471,7 +471,7 @@ export default function AntennaCaseStudy({ project }: AntennaCaseStudyProps) {
       </section>
 
       {/* 08. CST SIMULATION SETUP */}
-      <section id="simulation" className="scroll-mt-32 mb-20">
+      <section id="simulation" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
         <SectionHeader number="08" title="CST SIMULATION SETUP" />
         <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-6 max-w-3xl">
           Full 3D electromagnetic simulations were conducted in CST Studio Suite using a transient solver with waveguide port excitation.
@@ -507,7 +507,7 @@ export default function AntennaCaseStudy({ project }: AntennaCaseStudyProps) {
       </section>
 
       {/* 09. SIMULATED PERFORMANCE */}
-      <section id="performance" className="scroll-mt-32 mb-20">
+      <section id="performance" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
         <SectionHeader number="09" title="SIMULATED PERFORMANCE" />
         
         {/* Performance Badge Callout */}
@@ -628,7 +628,7 @@ export default function AntennaCaseStudy({ project }: AntennaCaseStudyProps) {
       </section>
 
       {/* 10. PERFORMANCE SUMMARY */}
-      <section id="summary" className="scroll-mt-32 mb-20">
+      <section id="summary" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
         <SectionHeader number="10" title="PERFORMANCE SUMMARY" />
         <div className="bg-slate-900/60 border border-slate-800 rounded-xl overflow-hidden shadow-lg">
           <div className="border-b border-slate-800 bg-slate-950/70 p-4 sm:p-6 flex items-center justify-between">
@@ -688,7 +688,7 @@ export default function AntennaCaseStudy({ project }: AntennaCaseStudyProps) {
       </section>
 
       {/* 11. POTENTIAL APPLICATIONS */}
-      <section id="applications" className="scroll-mt-32 mb-20">
+      <section id="applications" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
         <SectionHeader number="11" title="POTENTIAL APPLICATIONS" />
         <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-6 max-w-3xl">
           Potential applications identified for this simulated 60 GHz millimeter-wave metasurface design:
@@ -714,7 +714,7 @@ export default function AntennaCaseStudy({ project }: AntennaCaseStudyProps) {
       </section>
 
       {/* 12. LIMITATIONS */}
-      <section id="limitations" className="scroll-mt-32 mb-20">
+      <section id="limitations" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
         <SectionHeader number="12" title="LIMITATIONS" />
         <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-6 max-w-3xl">
           Engineering constraints and practical boundary conditions identified during simulation analysis:
@@ -741,7 +741,7 @@ export default function AntennaCaseStudy({ project }: AntennaCaseStudyProps) {
       </section>
 
       {/* 13. FUTURE SCOPE */}
-      <section id="future-scope" className="scroll-mt-32 mb-24">
+      <section id="future-scope" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
         <SectionHeader number="13" title="FUTURE SCOPE" />
         <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-6 max-w-3xl">
           Promising research and engineering directions for prospective experimental follow-up:
@@ -768,7 +768,7 @@ export default function AntennaCaseStudy({ project }: AntennaCaseStudyProps) {
       </section>
 
       {/* 14. PROJECT GALLERY */}
-      <section id="gallery" className="scroll-mt-32 mb-24">
+      <section id="gallery" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
         <SectionHeader number="14" title="PROJECT GALLERY" />
         <p className="text-slate-400 text-sm sm:text-base leading-relaxed mb-8 max-w-3xl">
           High-resolution CST Studio Suite simulation visuals, geometry schematics, and electromagnetic performance graphs. Click any image to inspect in full view.
@@ -777,7 +777,7 @@ export default function AntennaCaseStudy({ project }: AntennaCaseStudyProps) {
       </section>
 
       {/* 15. TOOLS & TAKEAWAYS */}
-      <section id="tools" className="scroll-mt-32 mb-24">
+      <section id="tools" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
         <div className="grid md:grid-cols-2 gap-12">
           <div>
             <SectionHeader number="15" title="TOOLS & TECHNOLOGIES" />

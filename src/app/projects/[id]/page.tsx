@@ -121,10 +121,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
         <AntennaCaseStudy project={project} />
       ) : (
         <>
-          <div className="container-portfolio max-w-5xl py-10 sm:py-16">
+          <div className="container-portfolio max-w-5xl pt-4 sm:pt-6 pb-0">
             
             {/* OVERVIEW & SPECIFICATIONS */}
-            <section id="overview" className="scroll-mt-32 mb-14 sm:mb-20">
+            <section id="overview" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
               <SectionHeader number="01" title="OVERVIEW" />
               <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
                 <div className="lg:col-span-7">
@@ -165,7 +165,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
             </section>
 
         {/* OBJECTIVE */}
-        <section id="objective" className="scroll-mt-32 mb-20">
+        <section id="objective" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
           <SectionHeader number="02" title="OBJECTIVE" />
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed sm:leading-loose max-w-3xl">
             {project.caseStudy.objective}
@@ -174,7 +174,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
 
         {/* ARCHITECTURE */}
         {project.caseStudy.architecture && (
-          <section id="architecture" className="scroll-mt-32 mb-20">
+          <section id="architecture" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
             <SectionHeader number="03" title="SYSTEM ARCHITECTURE" />
             <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-8 max-w-3xl">
               {project.caseStudy.architecture}
@@ -208,7 +208,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
 
         {/* DESIGN APPROACH */}
         {project.caseStudy.designApproach && (
-          <section id="design-approach" className="scroll-mt-32 mb-20">
+          <section id="design-approach" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
             <SectionHeader number="04" title="DESIGN APPROACH" />
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed sm:leading-loose max-w-3xl">
               {project.caseStudy.designApproach}
@@ -218,8 +218,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
 
         {/* SCHEMATIC */}
         {project.caseStudy.schematicDesc && (
-          <section id="schematic" className="scroll-mt-32 mb-20">
-            <SectionHeader number="04" title="SCHEMATIC" />
+          <section id="schematic" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
+            <SectionHeader number={project.caseStudy.designApproach ? "05" : "04"} title="SCHEMATIC" />
             <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-8 max-w-3xl">
               {project.caseStudy.schematicDesc}
             </p>
@@ -244,61 +244,59 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
           </section>
         )}
 
-        {/* PCB DESIGN & STACKUP */}
+        {/* PCB LAYOUT */}
         {project.caseStudy.pcbDesignDesc && (
-          <section id="pcb-design" className="scroll-mt-32 mb-20">
+          <section id="pcb-design" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
             <SectionHeader 
-              number="05" 
-              title={project.id === 'stm32f103' ? "PCB LAYOUT & 2-LAYER STACKUP" : "PCB LAYOUT & 4-LAYER STACKUP"} 
+              number={project.caseStudy.designApproach ? "06" : "05"} 
+              title="PCB LAYOUT" 
             />
             <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-8 max-w-3xl">
               {project.caseStudy.pcbDesignDesc}
             </p>
             
-            {/* Complete PCB Layout */}
-            <div className="mb-14">
-              <div className="w-full aspect-[16/9] sm:aspect-[1.85/1] bg-slate-950 border border-slate-800 rounded-xl flex items-center justify-center overflow-hidden mb-4 p-3 sm:p-6 shadow-xl">
-                {project.media.pcbTop ? (
-                  <img src={project.media.pcbTop} alt="Complete PCB Layout" className="w-full h-full object-contain" />
-                ) : (
-                  <span className="font-mono text-cyan-500/50 text-xs tracking-widest px-4 py-2 border border-cyan-500/20 rounded bg-slate-950/50">
-                    [ACTUAL PCB LAYOUT — TO BE ADDED]
-                  </span>
-                )}
-              </div>
-              <p className="font-mono text-xs text-slate-500 text-center tracking-wide mt-2">
-                {project.id === 'stm32f103'
-                  ? 'Complete PCB layout showing component placement and routing.'
-                  : project.id === 'power-converter'
-                  ? 'PCB layout of the power converter design.'
-                  : 'Complete PCB layout showing component placement and multi-layer routing.'}
-              </p>
+            <div className="w-full aspect-[16/9] sm:aspect-[1.85/1] bg-slate-950 border border-slate-800 rounded-xl flex items-center justify-center overflow-hidden mb-4 p-3 sm:p-6 shadow-xl">
+              {project.media.pcbTop ? (
+                <img src={project.media.pcbTop} alt="Complete PCB Layout" className="w-full h-full object-contain" />
+              ) : (
+                <span className="font-mono text-cyan-500/50 text-xs tracking-widest px-4 py-2 border border-cyan-500/20 rounded bg-slate-950/50">
+                  [ACTUAL PCB LAYOUT — TO BE ADDED]
+                </span>
+              )}
             </div>
+            <p className="font-mono text-xs text-slate-500 text-center tracking-wide mt-2">
+              {project.id === 'stm32f103'
+                ? 'Complete PCB layout showing component placement and routing.'
+                : project.id === 'power-converter'
+                ? 'PCB layout of the power converter design.'
+                : 'Complete PCB layout showing component placement and multi-layer routing.'}
+            </p>
+          </section>
+        )}
 
-            {/* Stackup Explorer */}
-            {project.caseStudy.layerStructureDesc && (
-              <div className="mt-10">
-                <h4 className="font-display text-xl font-semibold text-white mb-3">
-                  {project.id === 'stm32f103' ? '2-Layer Stackup Explorer' : '4-Layer Stackup Explorer'}
-                </h4>
-                <p className="text-slate-400 text-sm sm:text-base leading-relaxed mb-8 max-w-3xl">
-                  {project.caseStudy.layerStructureDesc}
-                </p>
-                <PcbLayerExplorer media={project.media} />
-                <p className="font-mono text-xs text-slate-500 text-center tracking-wide mt-4">
-                  {project.id === 'stm32f103'
-                    ? '2-layer PCB stackup showing the top and bottom copper layers.'
-                    : '4-layer PCB stackup: L1 Signal, L2 Ground, L3 Ground, L4 Signal.'}
-                </p>
-              </div>
-            )}
+        {/* LAYER STACKUP */}
+        {project.caseStudy.layerStructureDesc && (
+          <section id="stackup" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
+            <SectionHeader 
+              number={project.caseStudy.designApproach ? "07" : "06"} 
+              title={project.id === 'stm32f103' ? "2-LAYER STACKUP EXPLORER" : "4-LAYER STACKUP EXPLORER"} 
+            />
+            <p className="text-slate-400 text-sm sm:text-base leading-relaxed mb-8 max-w-3xl">
+              {project.caseStudy.layerStructureDesc}
+            </p>
+            <PcbLayerExplorer media={project.media} />
+            <p className="font-mono text-xs text-slate-500 text-center tracking-wide mt-4">
+              {project.id === 'stm32f103'
+                ? '2-layer PCB stackup showing the top and bottom copper layers.'
+                : '4-layer PCB stackup: L1 Signal, L2 Ground, L3 Ground, L4 Signal.'}
+            </p>
           </section>
         )}
 
         {/* RF DESIGN (conditional for other projects only) */}
         {project.caseStudy.rfDesignDesc && (
-          <section id="rf-design" className="scroll-mt-32 mb-20">
-            <SectionHeader number="06" title="RF DESIGN" />
+          <section id="rf-design" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
+            <SectionHeader number="08" title="RF DESIGN" />
             <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-6">{project.caseStudy.rfDesignDesc}</p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="aspect-[4/3] bg-slate-900 border border-slate-800 rounded-xl flex items-center justify-center overflow-hidden">
@@ -325,8 +323,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
 
         {/* VERIFICATION & RESULTS (conditional for other projects only) */}
         {(project.caseStudy.verificationDesc || project.caseStudy.resultsDesc) && (
-          <section id="verification" className="scroll-mt-32 mb-20">
-            <SectionHeader number="07" title="VERIFICATION & RESULTS" />
+          <section id="verification" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
+            <SectionHeader number="09" title="VERIFICATION & RESULTS" />
             
             {project.caseStudy.verificationDesc && (
               <div className="mb-10">
@@ -359,9 +357,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
 
       {/* 3D VISUALIZATION (Full Width) */}
       {project.media && (
-        <section id="3d-visualization" className="scroll-mt-32 mb-24 bg-slate-900 py-16 border-y border-slate-800">
+        <section id="3d-visualization" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24 bg-slate-900 py-12 sm:py-16 border-y border-slate-800">
           <div className="container-portfolio max-w-5xl">
-            <SectionHeader number="07" title="3D VISUALIZATION" />
+            <SectionHeader number="08" title="3D VISUALIZATION" />
             <div className="w-full aspect-[2/1] bg-slate-950 border border-slate-800/50 rounded-xl flex items-center justify-center overflow-hidden mt-8 shadow-2xl p-2 sm:p-6 mb-4">
               {project.media.renderFront ? (
                 <img src={project.media.renderFront} alt="3D Render" className="w-full h-full object-contain" />
@@ -382,46 +380,43 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
         </section>
       )}
 
-      <div className="container-portfolio max-w-5xl pb-24">
+      <div className="container-portfolio max-w-5xl pb-16 sm:pb-24">
         {/* GALLERY */}
-        <section id="gallery" className="scroll-mt-32 mb-24">
+        <section id="gallery" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
           <SectionHeader number="09" title="PROJECT GALLERY" />
           <ProjectGallery media={project.media} />
         </section>
 
-        {/* TOOLS & TAKEAWAYS */}
-        <section id="tools" className="scroll-mt-32 mb-24">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <SectionHeader number="10" title="TOOLS & TECHNOLOGIES" />
-              <div className="flex flex-wrap gap-2">
-                {project.caseStudy.tools.map((tool) => (
-                  <span key={tool} className="tech-tag border-slate-700 bg-slate-800/50 text-slate-300 px-3 py-1.5 text-sm">
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </div>
-            
-            {project.caseStudy.takeaways && (
-              <div>
-                <SectionHeader number="11" title="ENGINEERING TAKEAWAYS" />
-                <ul className="space-y-3">
-                  {project.caseStudy.takeaways.map((takeaway) => (
-                    <li key={takeaway} className="flex items-start gap-3 text-slate-300">
-                      <ChevronRight size={18} className="text-cyan-500 mt-1 flex-shrink-0" />
-                      <span className="leading-relaxed">{takeaway}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+        {/* TOOLS & TECHNOLOGIES */}
+        <section id="tools" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
+          <SectionHeader number="10" title="TOOLS & TECHNOLOGIES" />
+          <div className="flex flex-wrap gap-2">
+            {project.caseStudy.tools.map((tool) => (
+              <span key={tool} className="tech-tag border-slate-700 bg-slate-800/50 text-slate-300 px-3 py-1.5 text-sm">
+                {tool}
+              </span>
+            ))}
           </div>
         </section>
 
+        {/* ENGINEERING TAKEAWAYS */}
+        {project.caseStudy.takeaways && (
+          <section id="takeaways" className="scroll-mt-32 mb-16 sm:mb-20 md:mb-24">
+            <SectionHeader number="11" title="ENGINEERING TAKEAWAYS" />
+            <ul className="space-y-3">
+              {project.caseStudy.takeaways.map((takeaway) => (
+                <li key={takeaway} className="flex items-start gap-3 text-slate-300">
+                  <ChevronRight size={18} className="text-cyan-500 mt-1 flex-shrink-0" />
+                  <span className="leading-relaxed">{takeaway}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         {/* GITHUB */}
         {project.caseStudy.githubUrl && (
-          <section className="mb-24 flex justify-center">
+          <section className="mb-16 sm:mb-20 md:mb-24 flex justify-center">
             <a
               href={project.caseStudy.githubUrl}
               target="_blank"
