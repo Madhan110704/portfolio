@@ -1,0 +1,92 @@
+Electronics & Embedded Systems Portfolio
+Freelancing Services: VLSI Design, Embedded Systems, IoT Solutions
+IoT & Smart Home Solutions
+Corridor Lighting Control System
+Bluetooth-controlled dual LED corridor system with 6 operational modes
+Modes: Individual ON/OFF, blinking patterns, simultaneous control
+Components: Color LEDs, resistors, Bluetooth module, microcontroller
+Figure 1: Corridor Lighting Control Setup with Mobile Interface
+Robotic Autonomous Vehicles
+Cleaning Robot
+Wireless control via Bluetooth smartphone app with real-time directional input
+Interrupt-driven firmware for responsive forward/reverse/left/right navigation
+Integrated IR sensors for obstacle avoidance and autonomous path planning
+Tech Stack: Arduino, L298N motor driver, 4-wheel DC motors, IR sensors, Bluetooth module
+Figure 2: Robotic Cleaning Vehicle - Hardware Assembly
+Figure 3: Motor Control & Sensor Integration Detail
+Cutting Robot
+Identical architecture to cleaning robot with motorized cutter module for autonomous cutting applications
+MP3 Player Controller
+Hardwired control interface with next, previous, volume up, and volume down commands
+Components: Arduino microcontroller, MP3 module, tactile switches, speaker system
+Safety & Environmental Monitoring
+Smoke & Gas Alert System
+Real-time fire detection with dual sensors (smoke + combustible gas)
+Multi-modal alerts: audible buzzer and visual LCD display with sensor readings
+Tech Stack: ESP32, MQ-series gas sensor, smoke sensor, 16x2 LCD, buzzer
+Figure 4: Fire Detection System with Sensor Array
+Cardiac Monitoring System
+Biomedical IoT platform for real-time heart rate detection and arrhythmia pattern recognition
+Wireless data transmission to ThingSpeak cloud platform for remote patient monitoring
+Touchscreen interface with local LCD display for immediate feedback
+Tech Stack: ESP32, HR sensor, BMP180 (pressure/temperature), capacitive touch sensor, LCD, ThingSpeak API
+Figure 5: Cardiac Monitoring System Interface
+Figure 6: Real-time Heart Rate Data Visualization
+Floating Shelter Flood Detection & Safety System
+Water Level Sensor: Early flood detection with configurable alert thresholds
+Tilt Sensor: Structural stability monitoring (>30° tilt triggers emergency protocols)
+GPS/GSM Module: Automatic SMS alerts to authorities with real-time shelter coordinates
+Clap Switch: Voice-activated control (1 clap ON, 2 claps OFF) for hands-free operation
+Power: Sustainable 12V/7Ah Li-ion battery with solar panel integration for continuous operation
+Tech Stack: Water/tilt sensors, buzzer, status LEDs, GSM module, GPS module, microphone (clap detection), solar controller
+Figure 7: Floating Shelter System Architecture
+RF & Antenna Design
+Antenna Design & Optimization
+Portfolio of 5 antenna designs: monopole, dipole, rectangular loop, circular loop, 2-element patch array
+Comprehensive performance characterization: S11 return loss, radiation gain, directivity analysis
+Simulation tool: HFSS or equivalent FEM software
+Figure 8: Antenna Design - S11 Parameter Analysis
+Figure 9: 2-Element Patch Array Configuration
+Metasurface-Based Ultra-Wideband (UWB) Antenna
+Multilayer metasurface design targeting 3.1–10.6 GHz band for 5G/6G applications
+Via-wall structure for enhanced wideband performance with superior return loss (<–10 dB)
+Rogers substrate with optimized geometry for low insertion loss and high gain
+Design tool: CST Microwave Studio with full parametric optimization
+Figure 10: UWB Antenna Design - 3D Geometry
+Figure 11: S-Parameter Performance (3.1-10.6 GHz)
+Figure 12: Radiation Pattern & Gain Analysis
+VLSI & Digital Circuit Design
+Energy-Efficient Approximate Full Adders
+Architected low-power approximate arithmetic designs (RCPFA-IV/V, ERPFA-III/IV variants)
+8-bit hybrid adder combining approximate stages for error-tolerant workloads with exact overflow detection
+Measured results: 18–26% dynamic energy reduction, up to 35% static leakage power reduction
+Application validation: MATLAB image filtering with PSNR 49–53 dB (imperceptible quality loss)
+Language: Verilog HDL for synthesis-ready implementation
+Figure 13: Approximate Adder Architecture & Power Analysis
+Figure 14: Circuit Schematic - Hybrid Design
+Hardware & PCB Design
+Power Converter PCB
+Complete schematic design from topology selection through component optimization
+Multi-layer PCB layout with routing optimization for minimal EMI and thermal management
+Advanced design documentation: 3D board visualization and fabrication-ready Gerber files
+Tools: Altium Designer or equivalent EDA suite
+Figure 15: Power Converter - Schematic Design
+Figure 16: PCB Layout & Thermal Distribution
+Technical Expertise & Services
+Design & Development
+Custom RTL (Register Transfer Level) code generation for application-specific requirements
+Embedded firmware development with real-time constraints and interrupt-driven architectures
+End-to-end IoT system integration from sensor to cloud
+Tools & Languages
+HDL: Verilog, VHDL
+Embedded: C, C++, Arduino
+EDA/CAD: CST Microwave Studio, HFSS, Altium Designer
+Simulation: MATLAB, Python, ModelSim
+IoT Platforms: ThingSpeak, Arduino IDE
+Hardware Domains
+Microcontrollers: Arduino, ESP32
+Communication Protocols: UART, SPI, I2C, Bluetooth
+RF & Wireless: Antenna design, UWB systems, Bluetooth/WiFi integration
+Sensors: Biomedical, environmental, proximity, motion
+Power Management: Battery systems, solar integration, power conversion
+Available for consulting, design implementation, and hands-on development. Deliverables include schematics, firmware, PCB layouts, and comprehensive technical documentation.
