@@ -19,10 +19,26 @@ export const ASSETS = {
   // ─── Projects ───────────────────────────────────────────────────────────────
   projects: {
     stm32wb: {
-      schematic: '/images/projects/stm32wb/schematic.png',
-      pcbTop:    '/images/projects/stm32wb/pcb-layout.png',
-      layers:    '/images/projects/stm32wb/layers.png',
-      model3d:   '/images/projects/stm32wb/3d-model.png',
+      schematic:    '/images/projects/stm32wb/schematic.png',
+      pcbTop:       '/images/projects/stm32wb/pcb-layout.png',
+      layers:       '/images/projects/stm32wb/layers.png',
+      layer1:       '/images/projects/stm32wb/layer1.png',
+      layer2:       '/images/projects/stm32wb/layer2.png',
+      layer3:       '/images/projects/stm32wb/layer3.png',
+      layer4:       '/images/projects/stm32wb/layer4.png',
+      model3d:      '/images/projects/stm32wb/3d-model.png',
+      architecture: '/images/projects/stm32wb/systemarchitecture.png',
+    },
+    stm32wb55: {
+      schematic:    '/images/projects/stm32wb55/schematic.png',
+      pcbTop:       '/images/projects/stm32wb55/pcb-layout.png',
+      layers:       '/images/projects/stm32wb55/layers.png',
+      layer1:       '/images/projects/stm32wb55/layer1.png',
+      layer2:       '/images/projects/stm32wb55/layer2.png',
+      layer3:       '/images/projects/stm32wb55/layer3.png',
+      layer4:       '/images/projects/stm32wb55/layer4.png',
+      model3d:      '/images/projects/stm32wb55/3d-model.png',
+      architecture: '/images/projects/stm32wb55/systemarchitecture.png',
     },
     stm32f1: {
       schematic: '/images/projects/stm32f1/schematic.jpg',
