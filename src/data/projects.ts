@@ -69,7 +69,7 @@ export const PROJECTS: Project[] = [
       { label: 'Control', value: 'BOOT0 Switch + UART Header' },
     ],
     description:
-      'Designed a custom 4-layer STM32WB55CEU6-based wireless and RF PCB in KiCad, covering schematic design, component selection, PCB layout, routing, and 3D visualization.',
+      'Custom 4-layer STM32WB55CEU6 wireless PCB designed in KiCad with RF matching, USB-C power, and SWD debugging.',
     highlights: [
       'STM32WB55CEU6 wireless MCU integration',
       '4-layer PCB stack-up with dedicated ground and power planes',
@@ -138,7 +138,7 @@ export const PROJECTS: Project[] = [
     },
     caseStudy: {
       overview:
-        'Designed a custom 4-layer wireless development board in KiCad based on the STM32WB55CEU6 dual-core MCU (Arm Cortex-M4 and Cortex-M0+ for dedicated 2.4 GHz BLE/RF). The design encompasses component selection, power regulation, RF matching, and high-density multi-layer routing.',
+        'Designed a custom 4-layer wireless development board around the STM32WB55CEU6 dual-core MCU. The design integrates power regulation, RF matching, USB-C, and high-density multi-layer routing.',
       objective:
         'Implement an ultra-compact RF development board featuring a 50 Ω matched RF front-end, stable 3.3V LDO regulation, USB-C power delivery, and low-profile Tag-Connect SWD debugging.',
       architecture:

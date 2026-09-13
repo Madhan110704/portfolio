@@ -75,19 +75,51 @@ export default function StickyNav({ project }: { project: Project }) {
   };
 
   return (
-    <div className="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800 shadow-xl shadow-slate-950/20">
+    <div className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800 shadow-xl shadow-slate-950/30">
       <div className="container-portfolio">
-        <nav className="flex items-center gap-1 overflow-x-auto py-3 no-scrollbar mask-edges">
+        {/* MOBILE NAVIGATION: Option A - Compact Case Study Dropdown */}
+        <div className="sm:hidden py-2.5">
+          <div className="relative flex items-center justify-between px-3 py-2 rounded-lg bg-slate-900/90 border border-cyan-500/30 text-cyan-400">
+            <div className="flex items-center gap-2 text-xs font-mono tracking-wider">
+              <span className="text-slate-500 text-[0.65rem] uppercase">Section:</span>
+              <span className="font-bold text-slate-100">
+                {navItems.find((n) => n.id === activeSection)?.label || 'OVERVIEW'}
+              </span>
+            </div>
+            <div className="flex items-center gap-1.5 text-cyan-400 text-xs font-mono">
+              <span className="text-[0.68rem] tracking-widest text-cyan-400/80 uppercase">NAVIGATE</span>
+              <svg className="w-3.5 h-3.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+            {/* Native Select Overlay for Perfect Mobile UX */}
+            <select
+              value={activeSection}
+              onChange={(e) => scrollTo(e.target.value)}
+              aria-label="Case Study Section Navigation"
+              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer bg-slate-900 text-white text-base"
+            >
+              {navItems.map(({ id, label }) => (
+                <option key={id} value={id} className="bg-slate-900 text-slate-200">
+                  {label}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        {/* DESKTOP NAVIGATION: Smooth Horizontal Tab Bar */}
+        <nav className="hidden sm:flex items-center gap-1 overflow-x-auto py-3 no-scrollbar mask-edges">
           {navItems.map(({ id, label }) => {
             const isActive = activeSection === id;
             return (
               <button
                 key={id}
                 onClick={() => scrollTo(id)}
-                className={`whitespace-nowrap px-4 py-2 rounded-full font-mono text-[0.65rem] sm:text-xs tracking-widest transition-all ${
+                className={`whitespace-nowrap px-4 py-1.5 rounded-full font-mono text-xs tracking-widest transition-all ${
                   isActive
-                    ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/30'
-                    : 'text-slate-500 hover:text-slate-300 border border-transparent'
+                    ? 'bg-cyan-500/15 text-cyan-400 border border-cyan-500/40 shadow-[0_0_12px_rgba(0,212,255,0.2)]'
+                    : 'text-slate-400 hover:text-slate-200 border border-transparent hover:bg-slate-900/60'
                 }`}
               >
                 {label}

@@ -30,49 +30,59 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
   return (
     <main className="bg-slate-950 min-h-screen text-slate-300 font-sans selection:bg-cyan-500/30">
       {/* 1. Header & Back Button */}
-      <div className="container-portfolio py-8 relative z-10">
+      <div className="container-portfolio pt-6 pb-4 sm:py-8 relative z-10">
         <Link
           href="/#projects"
-          className="inline-flex items-center gap-2 text-cyan-500 font-mono text-xs tracking-wider hover:text-cyan-400 transition-colors mb-12 group"
+          className="inline-flex items-center gap-2 text-cyan-500 font-mono text-xs tracking-wider hover:text-cyan-400 transition-colors mb-6 sm:mb-10 group"
         >
           <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
           BACK TO ENGINEERING WORK
         </Link>
 
         <div className="max-w-4xl">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="font-mono text-cyan-500 opacity-80">PROJECT {project.number} / 05</span>
+          {/* Project Number & Domain */}
+          <div className="flex items-center gap-2.5 mb-3 sm:mb-4">
+            <span className="font-mono text-cyan-500 text-xs sm:text-sm font-semibold opacity-90">
+              PROJECT {project.number} / 05
+            </span>
             <div className="w-1 h-1 rounded-full bg-slate-600" />
-            <span className="font-mono text-xs tracking-widest text-slate-400 uppercase">
+            <span className="font-mono text-[0.65rem] sm:text-xs tracking-widest text-slate-400 uppercase">
               {project.domain.join(' • ')}
             </span>
           </div>
 
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
+          {/* Project Title (Refined Responsive Size) */}
+          <h1 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-4 leading-tight tracking-tight">
             {project.title}
           </h1>
 
-          <p className="text-xl text-slate-400 mb-10 max-w-3xl leading-relaxed">
-            {project.description}
+          {/* Short Introductory Description */}
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 mb-4 sm:mb-6 max-w-3xl leading-relaxed">
+            {project.id === 'stm32wb55'
+              ? 'Custom 4-layer STM32WB55CEU6 wireless PCB designed in KiCad with RF matching, USB-C power, and SWD debugging.'
+              : project.description}
           </p>
 
-          <div className="flex flex-wrap gap-2">
-            {project.specs.map((spec) => (
-              <div
-                key={spec.label}
-                className="flex items-center gap-2 px-3 py-1.5 rounded bg-slate-900 border border-slate-800"
+          {/* 4–5 Primary Tags (Clean, uncluttered) */}
+          <div className="flex flex-wrap gap-2 mb-6 sm:mb-8">
+            {(project.id === 'stm32wb55'
+              ? ['STM32WB55CEU6', '4-Layer PCB', 'RF / Wireless', 'USB-C', 'KiCad']
+              : project.technologies.slice(0, 5)
+            ).map((tag) => (
+              <span
+                key={tag}
+                className="px-2.5 py-1 rounded text-xs font-mono bg-slate-900 border border-slate-800 text-cyan-400"
               >
-                <span className="font-mono text-[0.65rem] text-slate-500 uppercase">{spec.label}</span>
-                <span className="font-mono text-[0.75rem] text-cyan-400">{spec.value}</span>
-              </div>
+                {tag}
+              </span>
             ))}
           </div>
         </div>
       </div>
 
-      {/* 2. Hero Image */}
-      <div className="container-portfolio mb-16 relative z-10">
-        <div className="w-full aspect-[2/1] bg-slate-950 border border-slate-800 rounded-xl flex items-center justify-center overflow-hidden relative group p-2 sm:p-4">
+      {/* 2. Hero Image Anchor */}
+      <div className="container-portfolio mb-10 sm:mb-16 relative z-10">
+        <div className="w-full aspect-[16/10] sm:aspect-[2/1] bg-slate-950 border border-slate-800 rounded-xl flex items-center justify-center overflow-hidden relative group p-3 sm:p-6 shadow-2xl">
           <div className="absolute inset-0 bg-gradient-to-tr from-cyan-950/20 to-transparent pointer-events-none" />
           {project.media.hero ? (
             <img 
@@ -89,16 +99,16 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
           )}
         </div>
         {project.media?.hero && (
-          <p className="font-mono text-xs text-slate-500 text-center tracking-wide">
-            {project.id === 'uwb-antenna'
-              ? 'Exploded 3D view showing the 4×4 CSRR metasurface, stacked rectangular patch layer with RSRR loading, substrates, dumbbell DGS, and keyhole feed.'
+          <p className="font-mono text-[0.7rem] sm:text-xs text-slate-500 text-center tracking-wide mt-3">
+            {project.id === 'stm32wb55'
+              ? '3D visualization of the STM32WB55CEU6 4-layer wireless development board.'
+              : project.id === 'uwb-antenna'
+              ? 'Exploded 3D view showing the 4×4 CSRR metasurface, stacked patch, and feed.'
               : project.id === 'stm32f103'
               ? '3D visualization of the STM32F103C8T6 development board.'
               : project.id === 'power-converter'
               ? '3D visualization of the power converter PCB design in Altium Designer.'
-              : project.id === 'approx-adder'
-              ? 'Figure 13: Approximate adder architecture and power analysis.'
-              : `${project.title} primary visual.`}
+              : `${project.title} primary 3D visual.`}
           </p>
         )}
       </div>
@@ -111,32 +121,48 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
         <AntennaCaseStudy project={project} />
       ) : (
         <>
-          <div className="container-portfolio max-w-5xl py-16">
+          <div className="container-portfolio max-w-5xl py-10 sm:py-16">
             
-            {/* OVERVIEW */}
-            <section id="overview" className="scroll-mt-32 mb-20">
-          <SectionHeader number="01" title="OVERVIEW" />
-          <div className="grid md:grid-cols-3 gap-10 lg:gap-12">
-            <div className="md:col-span-2">
-              <p className="text-base sm:text-lg text-slate-300 leading-relaxed sm:leading-loose mb-6">
-                {project.caseStudy.overview}
-              </p>
-            </div>
-            <div>
-              <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 shadow-lg">
-                <h4 className="font-display font-semibold text-white mb-4 tracking-wide">Specifications</h4>
-                <div className="space-y-3">
-                  {project.specs.map(spec => (
-                    <div key={spec.label} className="flex flex-col border-b border-slate-800/50 pb-2 last:border-0 last:pb-0">
-                      <span className="font-mono text-[0.65rem] text-slate-500 uppercase tracking-wider">{spec.label}</span>
-                      <span className="text-sm text-slate-300 font-medium">{spec.value}</span>
+            {/* OVERVIEW & SPECIFICATIONS */}
+            <section id="overview" className="scroll-mt-32 mb-14 sm:mb-20">
+              <SectionHeader number="01" title="OVERVIEW" />
+              <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+                <div className="lg:col-span-7">
+                  <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed sm:leading-loose mb-6">
+                    {project.caseStudy.overview}
+                  </p>
+                </div>
+                <div className="lg:col-span-5">
+                  <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-4 sm:p-5 shadow-lg">
+                    <div className="flex items-center justify-between border-b border-slate-800 pb-2.5 mb-3">
+                      <h4 className="font-display font-semibold text-xs sm:text-sm text-slate-200 uppercase tracking-wider">
+                        Hardware Specifications
+                      </h4>
+                      <span className="font-mono text-[0.62rem] text-cyan-400 font-semibold px-2 py-0.5 rounded bg-cyan-950/60 border border-cyan-800/40">
+                        {project.categories[0]}
+                      </span>
                     </div>
-                  ))}
+
+                    {/* Compact 2-Column Responsive Specifications Grid */}
+                    <div className="grid grid-cols-2 gap-2 sm:gap-2.5">
+                      {project.specs.map((spec) => (
+                        <div
+                          key={spec.label}
+                          className="flex flex-col p-2 rounded bg-slate-950/70 border border-slate-800/70"
+                        >
+                          <span className="font-mono text-[0.6rem] text-slate-500 uppercase tracking-wider mb-0.5">
+                            {spec.label}
+                          </span>
+                          <span className="text-xs sm:text-sm font-medium text-slate-300 truncate" title={spec.value}>
+                            {spec.value}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
         {/* OBJECTIVE */}
         <section id="objective" className="scroll-mt-32 mb-20">
@@ -446,10 +472,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
 
 function SectionHeader({ number, title }: { number: string; title: string }) {
   return (
-    <div className="flex items-center gap-4 mb-8">
-      <span className="font-mono text-cyan-500 opacity-80">{number}</span>
-      <h3 className="font-display text-2xl font-bold text-white tracking-wide">{title}</h3>
-      <div className="h-px bg-slate-800 flex-1 ml-4" />
+    <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-8">
+      <span className="font-mono text-cyan-400 text-xs sm:text-sm font-bold opacity-90">{number}</span>
+      <h3 className="font-display text-lg sm:text-2xl font-bold text-white tracking-wide">{title}</h3>
+      <div className="h-px bg-slate-800 flex-1 ml-2 sm:ml-4" />
     </div>
   );
 }
