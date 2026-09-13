@@ -140,35 +140,28 @@ export default function About() {
                 </div>
               </div>
 
-              <div className="space-y-4 flex-1" style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: '0.93rem' }}>
+              <div className="space-y-4 flex-1 text-slate-300 text-sm sm:text-base leading-relaxed">
                 <p>
-                  I&apos;m an Electronics & Communication Engineering graduate with hands-on
-                  exposure to PCB design, embedded systems, RF & antenna design, IoT and VLSI.
-                  My strongest practical area is hardware — designing schematics, routing
-                  multi-layer PCBs, and working through the full ERC/DRC-to-Gerber workflow.
+                  I&apos;m an Electronics &amp; Communication Engineering graduate from Meenakshi Sundararajan Engineering College (CGPA 8.49/10). My strongest practical expertise is in <span className="text-cyan-400 font-medium">PCB design and hardware</span> — capturing schematics, routing multi-layer boards, and managing the complete ERC/DRC-to-Gerber fabrication workflow in KiCad and Altium Designer.
                 </p>
                 <p>
-                  I&apos;m currently building my PCB design capability as a freelance and
-                  professional direction, having designed boards using STM32WB55, STM32F103
-                  and discrete power electronics in both KiCad and Altium Designer.
+                  Beyond board layout, I develop hands-on <span className="text-emerald-400 font-medium">embedded systems and IoT networks</span> using STM32 (Arm Cortex-M3/M4) and ESP32 architectures, writing interrupt-driven C firmware across UART, SPI, and I²C sensor buses.
                 </p>
                 <p>
-                  At the same time, I&apos;m developing my VLSI knowledge through academic
-                  projects and internship experience — Verilog RTL design, digital simulation,
-                  and FPGA implementation — which I see as a longer-term professional direction.
+                  With supporting breadth in <span className="text-sky-300 font-medium">RF/antenna electromagnetic simulation</span> (CST/HFSS) and <span className="text-purple-300 font-medium">VLSI digital design</span> (Verilog HDL), I am actively taking on freelance PCB development while pursuing engineering opportunities.
                 </p>
               </div>
 
             {/* Status badge */}
             <div className="mt-8 pt-6 border-t border-slate-800/50 flex flex-wrap gap-3">
               <div
-                className="flex items-center gap-2 px-3 py-1.5 rounded bg-green-500/10 text-green-400 font-mono text-xs border border-green-500/20"
+                className="flex items-center gap-2 px-3 py-1.5 rounded bg-emerald-500/10 text-emerald-400 font-mono text-xs border border-emerald-500/25"
               >
-                <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                Available for PCB Projects
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                Available for PCB Freelance
               </div>
               <div
-                className="flex items-center gap-2 px-3 py-1.5 rounded bg-cyan-500/10 text-cyan-400 font-mono text-xs border border-cyan-500/20"
+                className="flex items-center gap-2 px-3 py-1.5 rounded bg-cyan-500/10 text-cyan-400 font-mono text-xs border border-cyan-500/25"
               >
                 CGPA 8.49 / 10
               </div>
@@ -176,17 +169,20 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Engineering Focus Selector */}
+          {/* Engineering Focus Selector (Secondary Visual) */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:pl-2"
           >
-            <h3 className="section-label mb-8" style={{ fontSize: '1.05rem', color: 'var(--text-primary)' }}>Engineering Focus</h3>
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-xs font-mono tracking-widest text-slate-400 uppercase">Interactive Focus Exploration</span>
+            </div>
 
             {/* Focus list */}
-            <div className="space-y-2 mb-6">
+            <div className="space-y-1.5 mb-5">
               {FOCUS_ITEMS.map((item) => {
                 const isActive = item.id === activeId;
                 return (
@@ -194,10 +190,10 @@ export default function About() {
                     key={item.id}
                     id={`focus-${item.id}`}
                     onClick={() => setActiveId(item.id)}
-                    className="w-full text-left flex items-center gap-4 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-slate-800/30"
+                    className="w-full text-left flex items-center gap-3.5 px-3.5 py-2.5 rounded-lg transition-all duration-200 hover:bg-slate-800/40"
                     style={{
-                      background: isActive ? `rgba(${hexToRgb(item.color)}, 0.08)` : 'transparent',
-                      border: isActive ? `1px solid rgba(${hexToRgb(item.color)}, 0.3)` : '1px solid transparent',
+                      background: isActive ? `rgba(${hexToRgb(item.color)}, 0.08)` : 'rgba(13, 21, 38, 0.3)',
+                      border: isActive ? `1px solid rgba(${hexToRgb(item.color)}, 0.35)` : '1px solid rgba(30, 58, 95, 0.3)',
                       cursor: 'pointer',
                     }}
                     aria-pressed={isActive}

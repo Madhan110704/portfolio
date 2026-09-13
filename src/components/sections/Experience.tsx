@@ -222,18 +222,18 @@ export default function Experience() {
 
                       {/* Compact Highlights/Focus List */}
                       {item.highlights && item.highlights.length > 0 && (
-                        <div className="mt-2.5 pt-2 border-t border-slate-800/80">
-                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1">
+                        <div className="mt-3 pt-2.5 border-t border-slate-800/80">
+                          <ul className="space-y-1.5">
                             {item.highlights.map((h) => (
                               <li
                                 key={h}
-                                className="flex items-center gap-1.5 text-xs text-slate-300 leading-normal"
+                                className="flex items-start gap-2 text-xs text-slate-300 leading-relaxed"
                               >
                                 <span
-                                  className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                                  className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-1.5"
                                   style={{ backgroundColor: color }}
                                 />
-                                <span className="truncate">{h}</span>
+                                <span>{h}</span>
                               </li>
                             ))}
                           </ul>

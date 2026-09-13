@@ -249,9 +249,15 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 30px rgba(0, 212, 255, 0.3), 0 0 80px rgba(0, 212, 255, 0.1);
 }
 
-/* Section spacing - Refined for better vertical rhythm */
+/* Section spacing - Generous intentional whitespace */
 .section-padding {
-  padding: 4.5rem 0;
+  padding: 5rem 0;
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 6.5rem 0;
+  }
 }
 
 section[id] {

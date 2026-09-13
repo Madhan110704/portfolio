@@ -60,21 +60,21 @@ export default function Hero() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="flex items-center gap-3 mb-6"
+              className="flex items-center gap-3 mb-5"
             >
               <div className="w-8 h-px" style={{ background: 'var(--accent-cyan)' }} />
-              <span className="section-label">Electronics & Communication Engineer</span>
+              <span className="section-label">Electronics &amp; Communication Engineer</span>
             </motion.div>
 
-            {/* Name */}
+            {/* 1. Name */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="mb-3"
+              className="mb-4"
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(2.1rem, 5.5vw, 4.5rem)',
+                fontSize: 'clamp(2.3rem, 5.5vw, 4.5rem)',
                 fontWeight: 700,
                 letterSpacing: '-0.02em',
                 lineHeight: 1.1,
@@ -84,46 +84,30 @@ export default function Hero() {
               <span className="gradient-text whitespace-nowrap">RAJ M</span>
             </motion.h1>
 
-            {/* Headline */}
+            {/* 2. One-line positioning statement */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mb-4"
+              className="mb-4 font-display font-medium text-slate-200"
               style={{
-                fontSize: 'clamp(1rem, 2vw, 1.2rem)',
-                color: 'var(--text-secondary)',
-                fontFamily: 'var(--font-display)',
-                fontWeight: 500,
-                maxWidth: 520,
+                fontSize: 'clamp(1.05rem, 2vw, 1.25rem)',
+                lineHeight: 1.4,
+                maxWidth: 540,
               }}
             >
-              Designing Hardware. Building Embedded Systems. Exploring RF & VLSI.
+              PCB Design &amp; Hardware Specialist <span className="text-cyan-400/80 font-normal">with Embedded &amp; RF Engineering</span>
             </motion.p>
 
-            {/* Domain tags */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap gap-2 mb-6"
-            >
-              {DOMAINS.map((d) => (
-                <span key={d} className="tech-tag">{d}</span>
-              ))}
-            </motion.div>
-
-            {/* Supporting text */}
+            {/* 3. Short description */}
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.35 }}
-              className="mb-8 max-w-lg text-sm leading-relaxed"
-              style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-body)' }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mb-8 max-w-lg text-sm sm:text-base leading-relaxed text-slate-400"
+              style={{ fontFamily: 'var(--font-body)' }}
             >
-              An Electronics & Communication Engineer working across PCB design, embedded hardware,
-              RF/antenna systems, IoT and digital VLSI — from schematics and layouts to
-              simulation and firmware.
+              Engineering custom schematics, multi-layer high-density PCB layouts, and robust firmware — taking complex hardware from circuit concept to fabrication-ready production.
             </motion.p>
 
             {/* CTAs */}

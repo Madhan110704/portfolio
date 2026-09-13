@@ -148,15 +148,16 @@ function SkillPanel({ category, index }: { category: typeof SKILL_CATEGORIES[0],
 
           <button
             onClick={() => setExpanded(!expanded)}
-            className="flex items-center gap-2 text-xs font-mono hover:text-white transition-colors w-full group"
+            className="flex items-center gap-2 text-xs font-mono hover:text-white transition-colors w-full group py-1"
             style={{ color: 'var(--text-muted)' }}
+            aria-expanded={expanded}
           >
-            <div className="h-px flex-1 bg-slate-800 group-hover:bg-slate-700 transition-colors" />
-            <span className="flex items-center gap-1">
-              {expanded ? 'HIDE' : `+${secondarySkills.length} MORE`}
-              <ChevronDown size={14} className={`transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
+            <div className="h-px flex-1 bg-slate-800/80 group-hover:bg-slate-700 transition-colors" />
+            <span className="flex items-center gap-1.5 tracking-wider">
+              {expanded ? 'SHOW LESS' : `VIEW MORE (+${secondarySkills.length})`}
+              <ChevronDown size={13} className={`transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
             </span>
-            <div className="h-px flex-1 bg-slate-800 group-hover:bg-slate-700 transition-colors" />
+            <div className="h-px flex-1 bg-slate-800/80 group-hover:bg-slate-700 transition-colors" />
           </button>
         </div>
       )}

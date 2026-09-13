@@ -117,18 +117,18 @@ export default function Projects() {
                     {flagshipProject.description}
                   </p>
 
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
-                    {flagshipProject.specs.slice(0, 6).map(spec => (
-                      <div key={spec.label} className="flex flex-col">
-                        <span className="font-mono text-[0.6rem] text-slate-500 uppercase tracking-wider mb-1">{spec.label}</span>
-                        <span className="font-mono text-xs text-cyan-400 truncate" title={spec.value}>{spec.value}</span>
-                      </div>
+                  {/* 4-5 Tech Tags */}
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {flagshipProject.technologies.slice(0, 5).map(tech => (
+                      <span key={tech} className="tech-tag" style={{ fontSize: '0.72rem', padding: '3px 10px' }}>
+                        {tech}
+                      </span>
                     ))}
                   </div>
 
                   <Link
                     href={`/projects/${flagshipProject.id}`}
-                    className="flex items-center gap-2 text-cyan-400 font-display text-sm font-bold tracking-wide hover:text-cyan-300 transition-colors mt-auto w-max group/btn"
+                    className="inline-flex items-center gap-2 text-cyan-400 font-display text-sm font-bold tracking-wide hover:text-cyan-300 transition-colors mt-auto w-max group/btn"
                   >
                     EXPLORE CASE STUDY
                     <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
@@ -139,7 +139,7 @@ export default function Projects() {
           )}
 
           {/* Filter tabs */}
-          <div className="flex flex-wrap gap-2 mb-8 border-t border-slate-800 pt-12" role="group" aria-label="Project filter">
+          <div className="flex flex-wrap gap-2 mb-8 border-t border-slate-800 pt-10" role="group" aria-label="Project filter">
             {FILTERS.map((f) => {
               const isActive = filter === f.value;
               const color    = f.value === 'ALL' ? '#00d4ff' : CATEGORY_COLORS[f.value];
@@ -165,7 +165,7 @@ export default function Projects() {
           </div>
 
           {/* Project grid */}
-          <motion.div layout className="grid md:grid-cols-2 gap-5">
+          <motion.div layout className="grid md:grid-cols-2 gap-6">
             <AnimatePresence mode="popLayout">
               {visibleProjects.map((project, i) => (
                 <motion.div
@@ -191,33 +191,29 @@ export default function Projects() {
             </div>
           )}
 
-          {/* Embedded & IoT Projects Gallery — Always Expanded */}
+          {/* Embedded & IoT Projects Gallery — Visually Secondary Compact Grid */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mt-16"
+            className="mt-20 pt-12 border-t border-slate-800/80"
           >
-            <div
-              className="p-5 rounded-xl mb-6"
-              style={{
-                background: 'rgba(13,21,38,0.6)',
-                border: '1px solid rgba(30,58,95,0.5)',
-              }}
-            >
-              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--accent-cyan)', marginBottom: 2 }}>
-                EMBEDDED & IOT SYSTEMS ARCHIVE
-              </p>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '1.25rem', color: 'var(--text-primary)' }}>
-                Embedded & IoT Projects Gallery
-              </h3>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: 4 }}>
-                {EMBEDDED_PROJECTS.length} hands-on embedded, biomedical, sensor, and robotics projects
+            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-8">
+              <div>
+                <span className="section-label" style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>
+                  ARCHIVE &bull; EMBEDDED &amp; SENSORS
+                </span>
+                <h3 className="font-display font-bold text-xl sm:text-2xl text-slate-200 mt-1">
+                  Embedded &amp; IoT Project Archive
+                </h3>
+              </div>
+              <p className="text-xs font-mono text-slate-500">
+                {EMBEDDED_PROJECTS.length} Completed Prototypes
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {EMBEDDED_PROJECTS.map((ep, i) => (
                 <motion.div
                   key={ep.id}
@@ -225,27 +221,22 @@ export default function Projects() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.05 }}
-                  className="glass-card flex flex-col overflow-hidden border border-slate-800/80 hover:border-cyan-500/40 transition-all duration-300 group"
+                  className="glass-card flex flex-col overflow-hidden border border-slate-800/70 hover:border-cyan-500/30 transition-all duration-300 group"
                 >
-                  {/* Image if available */}
+                  {/* Thumbnail */}
                   {ep.image && (
-                    <div className="w-full aspect-[16/10] bg-slate-950/80 border-b border-slate-800/60 p-2 flex items-center justify-center overflow-hidden relative">
+                    <div className="w-full aspect-[16/9] bg-slate-950/90 border-b border-slate-800/60 p-2 flex items-center justify-center overflow-hidden relative">
                       <img
                         src={ep.image}
                         alt={ep.title}
                         className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                       />
-                      {ep.caption && (
-                        <div className="absolute bottom-1 right-2 text-[0.6rem] font-mono text-slate-400/80 bg-slate-950/80 px-2 py-0.5 rounded border border-slate-800/50">
-                          {ep.caption.split(':')[0]}
-                        </div>
-                      )}
                     </div>
                   )}
 
                   <div className="p-4 flex flex-col flex-1">
                     {/* Number & Category */}
-                    <div className="flex items-center justify-between gap-2 mb-2">
+                    <div className="flex items-center justify-between gap-2 mb-1.5">
                       <span className="font-mono text-xs text-cyan-400 font-semibold">{ep.number}</span>
                       <span className="font-mono text-[0.6rem] text-slate-400 uppercase tracking-wider px-2 py-0.5 rounded bg-slate-900 border border-slate-800">
                         {ep.category}
@@ -253,29 +244,19 @@ export default function Projects() {
                     </div>
 
                     {/* Title */}
-                    <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '0.95rem', marginBottom: 6, color: 'var(--text-primary)' }}>
+                    <h4 className="font-display font-semibold text-sm text-slate-100 mb-1.5 leading-snug">
                       {ep.title}
                     </h4>
 
-                    {/* Description */}
-                    <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', lineHeight: 1.55, marginBottom: 10 }}>
+                    {/* One-line Description */}
+                    <p className="text-xs text-slate-400 leading-relaxed mb-3 line-clamp-2">
                       {ep.description}
                     </p>
 
-                    {/* Key Features */}
-                    <div className="mb-4 space-y-1">
-                      {ep.keyFeatures.slice(0, 3).map((feat) => (
-                        <div key={feat} className="flex items-start gap-1.5 text-[0.72rem] text-slate-400">
-                          <span className="text-cyan-400 text-xs leading-none mt-0.5">▸</span>
-                          <span className="line-clamp-1">{feat}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Tech Tags */}
-                    <div className="flex flex-wrap gap-1.5 mt-auto pt-3 border-t border-slate-800/50">
-                      {ep.tags.map((tag) => (
-                        <span key={tag} className="tech-tag" style={{ fontSize: '0.6rem', padding: '2px 6px' }}>
+                    {/* 2-4 Tech Tags */}
+                    <div className="flex flex-wrap gap-1 mt-auto pt-2.5 border-t border-slate-800/40">
+                      {ep.tags.slice(0, 4).map((tag) => (
+                        <span key={tag} className="tech-tag" style={{ fontSize: '0.6rem', padding: '1.5px 5px' }}>
                           {tag}
                         </span>
                       ))}
@@ -470,51 +451,31 @@ function ProjectCard({
 
         {/* Title */}
         <h3
-          style={{
-            fontFamily: 'var(--font-display)',
-            fontWeight: 600,
-            fontSize: '0.95rem',
-            marginBottom: 4,
-            color: 'var(--text-primary)',
-            lineHeight: 1.3,
-          }}
+          className="font-display font-bold text-base sm:text-lg text-slate-100 mb-2 leading-snug group-hover:text-cyan-300 transition-colors"
         >
           {project.title}
         </h3>
 
         {/* Description */}
-        <p
-          style={{
-            fontSize: '0.78rem',
-            color: 'var(--text-muted)',
-            lineHeight: 1.6,
-            flex: 1,
-            marginBottom: 12,
-          }}
-        >
-          {project.description.substring(0, 110)}…
+        <p className="text-xs sm:text-sm text-slate-400 leading-relaxed flex-1 mb-4 line-clamp-2">
+          {project.description}
         </p>
 
-        {/* Tech tags */}
+        {/* 3-4 Tech tags */}
         <div className="flex flex-wrap gap-1.5 mb-4">
           {project.technologies.slice(0, 4).map((tech) => (
-            <span key={tech} className="tech-tag" style={{ fontSize: '0.6rem', padding: '2px 5px' }}>
+            <span key={tech} className="tech-tag" style={{ fontSize: '0.62rem', padding: '2px 7px' }}>
               {tech}
             </span>
           ))}
-          {project.technologies.length > 4 && (
-            <span style={{ fontSize: '0.6rem', color: 'var(--text-muted)', padding: '2px 0', fontFamily: 'var(--font-mono)' }}>
-              +{project.technologies.length - 4} more
-            </span>
-          )}
         </div>
 
         {/* CTA */}
         <div
-          className="flex items-center gap-1 text-xs font-semibold transition-all duration-200 group-hover:gap-2"
+          className="flex items-center gap-1.5 text-xs font-bold tracking-wide transition-all duration-200 group-hover:gap-2.5 mt-auto pt-2"
           style={{ color: accentColor, fontFamily: 'var(--font-display)' }}
         >
-          Explore Project
+          EXPLORE PROJECT
           <ArrowRight size={13} />
         </div>
       </div>
