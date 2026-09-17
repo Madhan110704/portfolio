@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from 'next';
 import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import './globals.css';
+
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-WCXVHQJKYK';
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -96,6 +99,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#00d4ff" />
       </head>
       <body className="antialiased">{children}</body>
+      <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
     </html>
   );
 }
